@@ -16,10 +16,10 @@ function fibsRec(num) {
   } else if (num == 2) {
     return [0, 1];
   }
-  return [
-    ...fibsRec(num - 1),
-    fibsRec(num - 1)[num - 2] + fibsRec(num - 1)[num - 3],
-  ];
+  const previous = fibsRec(num - 1);
+  const nextNumber =
+    previous[previous.length - 1] + previous[previous.length - 2];
+  return [...previous, nextNumber];
 }
 
 console.log(fibsRec(8));
